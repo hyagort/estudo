@@ -1,6 +1,4 @@
-﻿using Estudo.Entities;
-using Estudo.Entities.Enums;
-using System;
+﻿using System;
 
 namespace Estudo
 {
@@ -8,15 +6,7 @@ namespace Estudo
     {
         static void Main(string[] args)
         {
-            Order order = new Order
-            {
-                Id = 1080,
-                Moment = DateTime.Now,
-                Status = OrderStatus.PendingPayment
-
-            };
-
-            Console.WriteLine(order);
+            
         }
     }
 }
