@@ -1,5 +1,4 @@
-﻿using Estudo.Entities;
-using System;
+﻿using System;
 using System.Globalization;
 
 namespace Estudo
@@ -8,33 +7,23 @@ namespace Estudo
     {
         static void Main(string[] args)
         {
-
-            Account account = new Account(1001, "Alex", 0.0);
-            BusinessAccount bacc = new BusinessAccount(1002, "Maria", 0.0, 500.0);
-
-            //Upcast
-
-            Account acc1 = bacc;
-            Account acc2 = new SavingsAccounts(1004, "Anna", 0.0, 0.01);
-
-            //Downcast
-
-            BusinessAccount acc3 = (BusinessAccount)acc1;
-            acc3.Loan(100.0);
-
-            if (acc2 is BusinessAccount)
+            try
             {
-                BusinessAccount acc4 = (BusinessAccount)acc2;
+                int n1 = int.Parse(Console.ReadLine());
+                int n2 = int.Parse(Console.ReadLine());
+
+                int result = n1 / n2;
+
+                Console.WriteLine(result);
             }
-            else if (acc2 is SavingsAccounts)
+            catch (DivideByZeroException e)
             {
-                SavingsAccounts acc4 = (SavingsAccounts)acc2;
-                acc4.UpdateBalance();
-                Console.WriteLine("Update!");
+                Console.WriteLine("Error! " + e.Message);
             }
-
-
-            Console.WriteLine(account.Balance);
+            catch (FormatException e)
+            {
+                Console.WriteLine("Error! " + e.Message);
+            }
 
 
         }
