@@ -34,5 +34,18 @@ namespace Estudo.Entities
         {
             Contracts.Remove(contract);
         }
+
+        public double Income(int year, int mounth)
+        {
+            double sum = BaseSalary;
+            foreach (HourContract contract in Contracts)
+            {
+                if (contract.Date.Year == year && contract.Date.Month == mounth)
+                {
+                    sum += contract.TotalValue();
+                }
+            }
+            return sum;
+        }
     }
 }
